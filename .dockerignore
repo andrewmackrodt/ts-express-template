@@ -1,0 +1,13 @@
+build/
+coverage/
+node_modules/
+.git/
+.github/
+.idea/
+.local/
+Dockerfile
+README.md
+eslint_report.json
+scratch.*
+.gitattributes
+.gitignore

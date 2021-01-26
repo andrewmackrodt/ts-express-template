@@ -1,0 +1,16 @@
+bower_components/
+build/
+coverage/
+node_modules/
+vendor/
+!.idea/
+.idea/inspectionProfiles/
+!.idea/inspectionProfiles/Project_Default.xml
+.idea/deployment.xml
+.idea/workspace.xml
+.vagrant/
+.vscode/
+Thumbs.db
+eslint_report.json
+*-error.log
+.DS_Store

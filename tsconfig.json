@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "lib": [
+      "dom",
+      "es6"
+    ],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "strict": true,
+    "target": "es2018"
+  },
+  "files": [
+    "./cluster.ts",
+    "./index.ts"
+  ],
+  "exclude": [
+    "./**/*.test.ts",
+    "./jest.*.ts"
+  ]
+}
