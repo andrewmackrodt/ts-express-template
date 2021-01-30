@@ -1,7 +1,7 @@
 import { Controller, Get } from '../decorators/controller'
 import { UserInfoRepository } from '../repositories/UserInfoRepository'
-import { Response, Request } from 'express'
 import { constants } from 'http2'
+import { Response, Request } from 'express'
 
 @Controller()
 export class HomeController {
