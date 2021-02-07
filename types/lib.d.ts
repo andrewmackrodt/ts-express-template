@@ -28,7 +28,7 @@ export interface constructor<T> {
 
 //region props
 export type KeyOf<T> = {
-    [K in keyof T]: T[K] extends Function ? never : K
+    [K in keyof T]: T[K] extends Function ? never : K & string
 }[keyof T]
 
 export type Props<T> = Pick<T, KeyOf<T>>
@@ -42,7 +42,7 @@ export type IsEqual<A, B> =
 export type MutableKeyOf<T> = {
     [K in keyof T]:
         T[K] extends Function ? never :
-        IsEqual<{ [U in K]: T[U] }, { -readonly [Q in K]: T[K] }> extends true ?  K :
+        IsEqual<{ [U in K]: T[U] }, { -readonly [Q in K]: T[K] }> extends true ? K & string :
         never
 }[keyof T]
 
