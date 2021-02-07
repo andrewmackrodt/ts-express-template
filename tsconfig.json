@@ -17,6 +17,9 @@
     "./cluster.ts",
     "./index.ts"
   ],
+  "include": [
+    "./types/**/*.d.ts"
+  ],
   "exclude": [
     "./**/*.test.ts",
     "./jest.*.ts"

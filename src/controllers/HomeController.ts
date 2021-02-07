@@ -12,7 +12,8 @@ export class HomeController {
     @Get()
     public async getIndex(req: Request, res: Response): Promise<void> {
         const userInfo = await this.repository.getFromRequest(req)
+        const json = userInfo.toJson({ transformCase: 'snake' })
 
-        res.status(constants.HTTP_STATUS_OK).json(userInfo)
+        res.status(constants.HTTP_STATUS_OK).json(json)
     }
 }
