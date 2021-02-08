@@ -1,12 +1,14 @@
-import { Mutable, constructor, DeepPartial } from '../../types/lib'
+import { Mutable, constructor, DeepPartial, RequiredKeys } from '../../types/lib'
 
-type Chain<T, U, P extends keyof U> = { [key: string]: U[P] } extends U
-    ? {
-        create(): T
-        createWithoutConstructor(): T
-        props(): Mutable<T>
-      }
-    : Builder<T, Omit<U, P>>
+type CompleteRequiredChain<T> = {
+    create(): T
+    createWithoutConstructor(): T
+    props(): Mutable<T>
+}
+
+type Chain<T, U, P extends keyof U> = Omit<Pick<U, RequiredKeys<U>>, P> extends Omit<U, P>
+    ? (Builder<T, Omit<U, P>> & CompleteRequiredChain<T>)
+    : (Builder<T, Omit<U, P>>)
 
 export class Builder<T, U = Mutable<T>> {
     protected readonly ctor: constructor<T>

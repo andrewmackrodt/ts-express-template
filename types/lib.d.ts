@@ -19,6 +19,14 @@ export type Nullable<T> = T | null
 
 export type Optional<T> = Nullable<T> | undefined
 
+export type OptionalKeys<T> = {
+    [P in keyof T]-?: {} extends Pick<T, P> ? P : never
+}[MutableKeyOf<T>]
+
+export type RequiredKeys<T> = {
+    [P in keyof T]-?: {} extends Pick<T, P> ? never : P
+}[MutableKeyOf<T>]
+
 export type Static<T extends constructor<T>> = new(...args: any[]) => InstanceType<T>
 
 export interface constructor<T> {
